@@ -1,8 +1,6 @@
 import UIKit
 
 
-
-
 //func saveThePrisoner(n: Int, m: Int, s: Int) -> Int {
 //    var beginLoop = s
 //    var sweetCount = m
@@ -75,7 +73,7 @@ beautifulDays(i: 20, j: 23, k: 6)
 
 
 let twoDArray = [[4, 8, 2], [4, 5, 7], [6, 1, 6]]
-//var arrA = twoDArray[0]
+var arrA = twoDArray[0]
 //let sum = arrA.reduce(0) {$0 + $1}
 //print(sum)
 
