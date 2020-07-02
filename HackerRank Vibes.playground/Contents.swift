@@ -3,17 +3,20 @@ import UIKit
 // Two Stings
 
 func twoStrings(s1: String, s2: String) -> String {
-    var ans = "NO"
-//    for char in s2 {
-//
-//    }
-    if s1.contains(s2) {
-        ans = "YES"
+    var dict: [String: String] = [:]
+
+    for letter in s1 {
+        dict[String(letter)] = String(letter)
     }
 
-
-    print(ans)
-    return ans
+    for letter in s2 {
+        if dict[String(letter)] != nil {
+            print("YES")
+            return "YES"
+        }
+    }
+    print("NO")
+    return "NO"
 }
 
 twoStrings(s1: "Hello", s2: "world")
