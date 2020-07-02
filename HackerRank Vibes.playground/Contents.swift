@@ -1,5 +1,75 @@
 import UIKit
 
+// Two Stings
+
+func twoStrings(s1: String, s2: String) -> String {
+    var ans = "NO"
+//    for char in s2 {
+//
+//    }
+    if s1.contains(s2) {
+        ans = "YES"
+    }
+
+
+    print(ans)
+    return ans
+}
+
+twoStrings(s1: "Hello", s2: "world")
+
+
+// Left Rotation
+
+var arr = [1, 2, 3, 4, 5]
+
+func rotLeft(a: [Int], d: Int) -> [Int] {
+
+    let first = a.dropLast(a.count - d)
+    var newArray = Array(a.dropFirst(d))
+    newArray.append(contentsOf: first)
+
+    print(newArray)
+    return newArray
+}
+
+rotLeft(a: arr, d: 3)
+
+
+// Repeated Srings
+
+func repeatedString(s: String, n: Int) -> Int {
+    let repeats = n / s.count
+    var aCount = 0
+
+    for letter in s {
+        if letter == "a" {
+            aCount += 1
+        }
+    }
+    aCount *= repeats
+    let excess = n % s.count
+
+    if excess != 0 {
+        for (i, letter) in s.enumerated() {
+
+            if letter == "a" {
+                aCount += 1
+            }
+
+            if i + 1 == excess {
+                break
+            }
+        }
+    }
+
+
+    print(aCount)
+    return aCount
+}
+
+
+// Save The Prisoner
 
 //func saveThePrisoner(n: Int, m: Int, s: Int) -> Int {
 //    var beginLoop = s
