@@ -1,5 +1,72 @@
 import UIKit
 
+// Bubble Sort
+
+func countSwaps(a: [Int]) -> Void {
+    var arr = a
+    var i = 0
+    var j = 1
+    var swaps = 0
+    var swapCount = 0
+
+    repeat {
+        swapCount = swaps
+        
+        repeat {
+            if arr[i] > arr[j] {
+                // Swap
+                let num = arr.remove(at: i)
+                arr.insert(num, at: j)
+                swaps += 1
+            }
+            i += 1
+            j += 1
+        } while j < arr.count
+
+        i = 0
+        j = 1
+        
+    } while swapCount != swaps
+    
+    print("Array is sorted in \(swaps) swaps.")
+    print("First Element: \(arr[0])")
+    print("Last Element: \(arr.last!)")
+    return
+}
+
+
+countSwaps(a: [2, 5, 6, 7, 1])
+countSwaps(a: [1, 2, 4, 6, 8])
+
+// Check Magazine
+
+func checkMagazine(magazine: [String], note: [String]) -> Void {
+    var dict: [String: Int] = [:]
+
+    for word in magazine {
+        if dict[word] == nil {
+            dict[word] = 1
+        } else {
+            dict[word]! += 1
+        }
+        
+    }
+//    print(dict)
+    for word in note {
+        if dict[word] == nil || dict[word] == 0 {
+            print("No")
+            return
+        } else {
+            dict[word]! -= 1
+        }
+    }
+
+    print("Yes")
+}
+
+
+checkMagazine(magazine: ["sean", "bello"], note: ["sean", "Bello"])
+
 // Two Stings
 
 func twoStrings(s1: String, s2: String) -> String {
