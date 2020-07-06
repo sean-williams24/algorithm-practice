@@ -1,5 +1,52 @@
 import UIKit
 
+// String manipulation
+
+var wordA = "abcdeffff"
+var wordA2 = "abc"
+
+func makeAnagram(a: String, b: String) -> Int {
+    var word = a
+    var word2 = b
+    
+    for letter in a {
+        if let index = word2.firstIndex(of: letter) {
+            word2.remove(at: index)
+            if let indexA = word.firstIndex(of: letter) {
+                word.remove(at: indexA)
+            }
+        }
+    }
+    
+    return word.count + word2.count
+}
+    
+
+makeAnagram(a: wordA, b: wordA2)
+
+// Maximum Tiys - Sorting
+
+func maximumToys(prices: [Int], k: Int) -> Int {
+    let sortedPrices = prices.sorted()
+    var count = 1
+    var total = sortedPrices[0]
+
+    for (i, price) in sortedPrices.enumerated() {
+        if price < k && total + sortedPrices[i + 1] < k {
+            if price == k {
+                return 1
+            } else {
+                total += sortedPrices[i + 1]
+                count += 1
+            }
+        } else {
+            return count
+        }
+    }
+
+    return count
+}
+
 // Bubble Sort
 
 func countSwaps(a: [Int]) -> Void {
