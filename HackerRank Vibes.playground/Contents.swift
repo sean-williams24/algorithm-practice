@@ -2,6 +2,27 @@ import UIKit
 
 // String manipulation
 
+func alternatingCharacters(s: String) -> Int {
+    var deletions = 0
+    var prev = ""
+
+    for letter in s {
+        if prev == "" {
+            prev = String(letter)
+        } else {
+            if prev == String(letter) {
+                deletions += 1
+            }
+            prev = String(letter)
+        }
+    }
+    print(deletions)
+    return deletions
+}
+
+alternatingCharacters(s: "AAABBB")
+
+
 var wordA = "abcdeffff"
 var wordA2 = "abc"
 
