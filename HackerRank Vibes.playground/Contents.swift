@@ -1,5 +1,118 @@
 import UIKit
 
+
+var twoDimensionalArray: [[Int]] = [[0, 1], [2, 3]]
+
+
+//for i in 0..<twoDimensionalArray.count {
+//    for n in 0..<twoDimensionalArray[i].count {
+//        print(twoDimensionalArray[i][n])
+//    }
+//}
+
+// Greedy Algorithms
+
+func minimumAbsoluteDifference(arr: [Int]) -> Int {
+    let numArray = arr.sorted()
+    var lowestAbsDiff = 0
+    
+    for (i, num) in numArray.enumerated() {
+        
+        let diff = abs(num - numArray[i + 1])
+        
+        if lowestAbsDiff == 0 {
+            lowestAbsDiff = diff
+        } else {
+            if diff < lowestAbsDiff {
+                lowestAbsDiff = diff
+            }
+        }
+        
+        if i + 2 >= numArray.count {
+            return lowestAbsDiff
+            print(lowestAbsDiff)
+        }
+    }
+    
+    print(lowestAbsDiff)
+    return lowestAbsDiff
+}
+minimumAbsoluteDifference(arr: [3, -7, 0])
+
+
+// Complete the minimumAbsoluteDifference function below.
+//func minimumAbsoluteDifference(arr: [Int]) -> Int {
+//    var numArray = arr
+//    var pairArray: [[Int]] = []
+//    var first = 0
+//
+//    while numArray.count > 1 {
+//        for num in numArray {
+//        if first == 0 {
+//            first = num
+//        } else {
+//            pairArray.append([first, num])
+//        }
+//    }
+//        print(pairArray)
+//        first = 0
+//        numArray.removeFirst(1)
+//    }
+//
+//    var lowestAbsDiff = 0
+//    for pair in pairArray {
+//        let diff = abs(pair[0] - pair[1])
+//
+//        if lowestAbsDiff == 0 {
+//            lowestAbsDiff = diff
+//        } else {
+//            if diff < lowestAbsDiff {
+//                lowestAbsDiff = diff
+//            }
+//        }
+//    }
+//
+//    print(lowestAbsDiff)
+//    return lowestAbsDiff
+//}
+
+
+
+// LuckBalance
+
+func luckBalance(k: Int, contests: [[Int]]) -> Int {
+    var importantContests = [Int]()
+    var luckValues = 0
+    var badLuck = 0
+
+    for arr in contests {
+        if arr[1] == 1 {
+            importantContests.append(arr[0])
+        } else {
+            luckValues += arr[0]
+        }
+    }
+
+    let losableContests = importantContests.count - k
+    importantContests.sort()
+
+    for (i, luck) in importantContests.enumerated() {
+        if i >= losableContests {
+            luckValues += luck
+        } else {
+            badLuck += luck
+        }
+    }
+
+    return luckValues - badLuck
+
+}
+
+//luckBalance(k: 2, contests: [[5,1], [4,0], [6,1], [2,1], [8,0]])
+luckBalance(k: 3, contests: [[5,1], [2,1], [1,1], [8,1], [10,0], [5,0]])
+
+
+
 // String manipulation
 
 func alternatingCharacters(s: String) -> Int {
