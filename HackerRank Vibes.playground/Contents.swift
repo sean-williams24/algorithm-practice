@@ -1,6 +1,9 @@
 import UIKit
 
 
+
+
+
 var twoDimensionalArray: [[Int]] = [[0, 1], [2, 3]]
 
 
@@ -11,6 +14,35 @@ var twoDimensionalArray: [[Int]] = [[0, 1], [2, 3]]
 //}
 
 // Greedy Algorithms
+
+
+var nums1 = [1, 7, 3, 4]
+
+func getProductsOfAllIntsExceptAtIndex(_ arr: [Int]) -> [Int] {
+    var products: [Int] = []
+    var index = 0
+    var product = 1
+    
+    while index < arr.count {
+        
+        for (i, num) in arr.enumerated() {
+            if i != index {
+                product *= num
+            }
+        }
+        
+        index += 1
+        products.append(product)
+        product = 1
+    }
+    
+    return products
+}
+
+
+print(getProductsOfAllIntsExceptAtIndex(nums1))
+print(getProductsOfAllIntsExceptAtIndex([0, 0, 0, 0]))
+print(getProductsOfAllIntsExceptAtIndex([]))
 
 func minimumAbsoluteDifference(arr: [Int]) -> Int {
     let numArray = arr.sorted()
@@ -37,7 +69,7 @@ func minimumAbsoluteDifference(arr: [Int]) -> Int {
     print(lowestAbsDiff)
     return lowestAbsDiff
 }
-minimumAbsoluteDifference(arr: [3, -7, 0])
+minimumAbsoluteDifference(arr: [-10, -10])
 
 
 // Complete the minimumAbsoluteDifference function below.
