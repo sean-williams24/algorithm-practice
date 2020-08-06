@@ -1,7 +1,32 @@
 import UIKit
 
+let M = 3
 
+// BSpoons algorithm test
 
+func binaryCalc(a: [Int], b: [Int]) -> [Int] {
+    var output: [Int] = []
+    var n = 1
+    var binaryNums = [a, b]
+    
+    if  b - a > 1 {
+        while n < b {
+            binaryNums.append(a + n)
+            n += 1
+        }
+    }
+    
+    for i in 0..<M {
+        output.append(1)
+        for bin in binaryNums {
+            if bin[i] == 0 {
+                output[i] = 0
+            }
+        }
+    }
+    
+    return output
+}
 
 
 var twoDimensionalArray: [[Int]] = [[0, 1], [2, 3]]
