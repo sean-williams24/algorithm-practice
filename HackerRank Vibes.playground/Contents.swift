@@ -1,10 +1,15 @@
 import UIKit
 
+struct lovely {
+    let cat: Int
+    var dog: Int
+}
+
 let M = 3
 
-// BSpoons algorithm test
+// algorithm test
 
-func binaryCalc(a: [Int], b: [Int]) -> [Int] {
+func binaryShminery(a: [Int], b: [Int]) -> [Int] {
     var output: [Int] = []
     var n = 1
     var binaryNums = [a, b]
