@@ -7,7 +7,7 @@ struct lovely {
 
 let M = 3
 
-// algorithm test
+// algorithm test (Pseudo Code)
 
 func binaryShminery(a: [Int], b: [Int]) -> [Int] {
     var output: [Int] = []
