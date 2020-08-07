@@ -79,8 +79,10 @@ func minimumAbsoluteDifference(arr: [Int]) -> Int {
     var lowestAbsDiff = 0
     
     for (i, num) in numArray.enumerated() {
-        
         let diff = abs(num - numArray[i + 1])
+        if diff == 0 {
+            return diff
+        }
         
         if lowestAbsDiff == 0 {
             lowestAbsDiff = diff
@@ -92,11 +94,9 @@ func minimumAbsoluteDifference(arr: [Int]) -> Int {
         
         if i + 2 >= numArray.count {
             return lowestAbsDiff
-            print(lowestAbsDiff)
         }
     }
     
-    print(lowestAbsDiff)
     return lowestAbsDiff
 }
 minimumAbsoluteDifference(arr: [-10, -10])
